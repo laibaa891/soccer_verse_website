@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+
+    <!-- <title> Responsive & sortable Bootstrap data table Example </title> -->
+    <link href="../images/logo1.png" rel="shortcut icon" type="image/png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+
+
+
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="..//style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Demo CSS (No need to include it into your project) -->
+    <link rel="stylesheet" href="../css/demo.css">
+    <!-- Bootstrap 5 CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
+    <!-- Data Table CSS -->
+    <link rel='stylesheet' href='https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css'>
+    <!-- Font Awesome CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <title>Ranking</title>
+
+
+    <style>
+        .playerHeading {
+            color: rgb(0, 20, 31);
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .text div {
+            font-weight: bold;
+            color: white;
+            background: rgb(0, 20, 31);
+            background: -webkit-radial-gradient(bottom, rgb(0, 20, 31), black);
+            color: white;
+            box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+
+        }
+
+        .text p {
+            font-family: lato, sans-serif;
+            font-size: 27px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Start -->
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 3px; box-shadow: rgb(0, 0, 0) 0px 5px 15px;">
+                <div class="modal-header" style="background: black; border-radius: 1px;">
+                    <h3 class="modal-title mx-auto" style="color: #0092e6; font-weight: 900;">Login</h3>
+                    <button style="background: none; border: none; color: white; font-size: 1.5rem; font-weight: 900;"
+                        type="button" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                required
+                                style="background: none; border: none; border-bottom: 3px solid #000000; border-radius: 0; box-shadow: none; outline: none; color: inherit;">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control login" id="floatingPassword"
+                                placeholder="Password" required
+                                style="background: none; border: none; border-bottom: 3px solid #030303; border-radius: 0; box-shadow: none; outline: none; color: inherit;">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+
+                        <div class="text-center me-3 my-4">
+                            <div class="">
+                                <label class="">don't have an account ?</label>
+                                <strong data-toggle="modal" data-dismiss="modal" data-target="#Modal"
+                                    style="cursor: pointer; color: rgb(0, 102, 255);">Sign up</strong>
+                            </div>
+
+                        </div>
+                        <div class="text-center">
+                            <button
+                                style="background: black; font-size: 1rem; font-weight: 900; color: #0092e6; border: 2px solid black; border-radius: 3px; width: 130px; height:30px;"
+                                type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Login End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Sign-Up Start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="Modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 3px; box-shadow: rgb(0, 0, 0) 0px 5px 15px;">
+                <div class="modal-header" style="background: black; border-radius: 1px;">
+                    <h3 class="modal-title mx-auto" style="color: #0092e6; font-weight: 900;">Sign Up</h3>
+                    <button style="background: none; border: none; color: white; font-size: 1.5rem; font-weight: 900;"
+                        type="button" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                required
+                                style="background: none; border: none; border-bottom: 3px solid #000000; border-radius: 0; box-shadow: none; outline: none; color: inherit;">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control login" id="floatingPassword"
+                                placeholder="Password" required
+                                style="background: none; border: none; border-bottom: 3px solid #030303; border-radius: 0; box-shadow: none; outline: none; color: inherit;">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control login" id="floatingPassword"
+                                placeholder="Confirm Password" required
+                                style="background: none; border: none; border-bottom: 3px solid #030303; border-radius: 0; box-shadow: none; outline: none; color: inherit;">
+                            <label for="floatingPassword">Confirm Password</label>
+                        </div>
+
+                        <div class="text-center me-3 my-4">
+                            <div class="">
+                                <label class="">already have an account ?</label>
+                                <strong data-toggle="modal" data-dismiss="modal" data-target="#myModal"
+                                    style="cursor: pointer; color: rgb(0, 102, 255);">Login</strong>
+                            </div>
+
+                        </div>
+                        <div class="text-center">
+                            <button
+                                style="background: black; font-size: 1rem; font-weight: 900; color: #0092e6; border: 2px solid black; border-radius: 3px; width: 130px; height:30px;"
+                                type="submit">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Sign-Up End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Navbar Start -->
+
+
+
+
+
+
+
+
+
+
+
+    <nav class="navbar navbar-expand-md sticky-top"
+        style="background: rgb(0, 28, 43); box-shadow: rgb(0, 0, 0) 0px 0.5px 3px;">
+        <div class="container-fluid">
+            <!-- <div class="d-md-none">
+                <div id="FullScreenOverlay" class="overlay">
+                    <span class="closebtn" onclick="closeSearchHero()" title="Close Overlay">×</span>
+                    <div class="overlay-content">
+                        <form action="">
+                            <input type="text" placeholder="Search..." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <button class="openBtn" onclick="openSearchHero()"><span class="fa fa-search"></span></button>
+            </div> -->
+
+
+
+            <a class="navbar-brand d-none d-md-block" href="../index.html"><img src="../images/logo.png"
+                    width="130px"></a>
+
+            <a class="navbar-brand ps-2 d-md-none" href="../index.html"><img src="../images/logo.png" width="100px"></a>
+
+
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <form class="d-flex ms-auto mt-3 d-none d-md-block col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
+                    role="search">
+                    <input type="search" id="search-box" placeholder="Search..." aria-label="Search">
+                    <button class="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form> -->
+                <div class="d-md-none mx-auto">
+                    <div class="container">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link"
+                                    style="color: rgb(255, 255, 255); font-weight: 500; border: 2px solid bottom black;"
+                                    href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="../about.html">About</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="../contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="../gallery.html">Gallery</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="../matches.html">Matches</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="ranking.html">Ranking</a>
+                            </li>
+                            <li class="nav-item border-bottom border-2 border-grey">
+                                <a class="home nav-link" style="color: rgb(255, 255, 255); font-weight: 500;"
+                                    href="../standing.html">Standings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <ul class="navbar-nav justify-content-center d-flex flex-row ms-auto fs-3 "
+                    style="color: white; font-weight: 900;">
+
+
+                    <li class="nav-item ms-2">
+                        <i type="button" class="bi bi-person-fill" data-toggle="modal" data-target="#myModal"></i>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar navbar-expand-sm d-none d-md-block"
+        style="background: rgb(245, 245, 245); box-shadow: rgb(0, 0, 0) 0px 0.5px 3px;">
+        <div class="container-fluid">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../matches.html">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="ranking.html">Ranking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="home nav-link" style="color: rgb(0, 0, 0); font-weight: 500;"
+                        href="../standing.html">Standings</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+    <!-- Navbar End -->
+
+
+
+
+
+
+    <!-- TOP 10 SOCCER PLAYERS IN THE WORLD START -->
+
+    <!-- <h1 class="text-center">Top 10 Best Soccer Players in the World</h1> -->
+    <div class="container-fluid">
+
+
+        <div class="pt-2"
+            style="height: auto; background-size: cover; background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0.644)),url('../images/bgall.jpg');">
+            <h2 class="text-center text-light fw-bold">Top 10 Best Soccer Players in the World</h2>
+            <div class="container mt-4">
+                <div class="row gap-3 justify-content-center align-items-center">
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#messiProfile">
+                                <img src="../Score_Page_images/Lionel Messi (2).jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">1. Lionel Messi</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#ronaldoProfile">
+                                <img src="../Score_Page_images/ronaldo_scorepage.jpg" height="300px" width="100%"
+                                    alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">2.Cristiano Ronaldo</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#neymarProfile">
+                                <img src="../Score_Page_images/neymar_scorepage.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">3.Neymar</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#RobertLewandowskiProfile">
+                                <img src="../Score_Page_images/RobertLewandowski.jpg" height="300px" width="100%"
+                                    alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">4.Robert Lewandowski</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#kylianProfile">
+                                <img src="../Score_Page_images/Kylian Mbappé.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">5.Kylian Mbappé</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row gap-3 mt-3 justify-content-center align-items-center">
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#kevinProfile">
+                                <img src="../Score_Page_images/Kevin De Bruyne.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">6.Kevin De Bruyne</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#salahProfile">
+                                <img src="../Score_Page_images/Mo_Salah_2018.png" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">7.Mohammad Salah</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#sadioProfile">
+                                <img src="../Score_Page_images/Sadio Mané.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">8.Sadio Mané</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#riyadProfile">
+                                <img src="../Score_Page_images/Riyad Mahrez.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">9.Riyad Mahrez</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 mb-5">
+                        <div class="text">
+                            <a href="#erlingProfile">
+                                <img src="../Score_Page_images/Erling Haaland.jpg" height="300px" width="100%" alt="">
+                                <div style="height: 55px;" class=" p-2">
+                                    <h6 class="fw-bold ">10.Erling Haaland</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Lionel Messi</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            La Pulga Atómica (the Atomic Flea) has remained at the top of this list for over a decade now, and at 33,
+            he’s still going strong. In fact, sensational stats and seasons have become second nature for him. Despite
+            missing Barcelona’s first four games of the season due to injury, Messi is likely to win La Liga top scorer
+            for the seventh time in his career with 22 goals so far and three games left to play. Along with those 22
+            goals, Messi has 20 assists in the league so far, beating his own personal record of 18 in a season and
+            totaling 42 goal contributions in 30 league games. For any player, that’s the season of a lifetime. For
+            Lionel Messi, that’s business as usual.
+            <br><br>
+            In all competitions, Messi has 27 goals and 24 assists and is hoping to lead Barcelona to its first
+            Champions League title since its treble win in the 2014-15 season. Messi is also the most recent player to
+            win the Ballon d’Or, just barely beating out Liverpool defender Virgil van Dijk by seven points. Despite
+            Barcelona’s managerial problems and uncertainty towards the future of the club when Messi leaves, the
+            Argentinian forward has been playing some unstoppable and exciting soccer as per usual and recently scored
+            his 700th career goal.
+            <img src="../images/90px-FC_Barcelona_Logo-removebg-preview.png" width="150px" height="100px" alt="">
+        </p>
+
+    </div>
+
+
+
+    <div id="ronaldoProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Cristiano Ronaldo</h2>
+
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            As long as he’s around, he’ll be up near the top of the list. Cristiano Ronaldo is 35 years old, playing in
+            Italy for only his second year, and still racking up absurd numbers in front of goal. Ronaldo has
+            contributed to half of all of Juventus’ goals this season with 28 goals and 6 assists in the 28 games he’s
+            played in the league and a total of 39 goal contributions in all competitions. He is currently challenging
+            Lazio’s Ciro Immobile for the Capocannoniere (Serie A top scorer) and has been Juventus’ star player in what
+            looks to be a title-winning campaign. Having won the Champions League with both of his former clubs, Ronaldo
+            will want to complete his personal treble this season when the tournament restarts in August.
+            <br><br>
+            What’s even more impressive is that Ronaldo is managing a goal a game in the league with less help from his
+            teammates than he’s had in the past. Out of the 20 teams in Seria A, Juventus ranks 16th in crosses this
+            season and 14th in both accurate crosses and assists from crosses. Ronaldo has the most headed goals in the
+            history of soccer, so the lack of crossing ability has made a significant dent in his goal tally this
+            season. Yet, he’s still one behind the leading scorer.
+            <img src="../Score_Page_images/Al Nassr Logo Vector.svg .png" width="150px" height="100px" alt="">
+        </p>
+
+
+
+    </div>
+
+
+    <div id="neymarProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Neymar</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Despite struggling with injury this season as well as not having played since early March due to Ligue 1’s
+            decision to end the season early rather than restart play after lockdown, Neymar Jr. comes in third on my
+            list. This should indicate just how incredible the Brazilian winger is when fit. In only 15 league games
+            this season, Neymar recorded 13 goals and 6 assists. In 22 games in all competitions, those numbers increase
+            to 18 goals and 10 assists. In his three seasons at Paris Saint-Germain, Neymar has not managed anything
+            close to a fully fit season, but his world-class ability is as clear as day whenever he’s on the field. The
+            only reasons that Neymar hasn’t won the Ballon d’Or are Messi, Ronaldo, and injuries. Without those three
+            factors, Neymar would easily be a contender, if not a shoo-in, for the best player of all time.
+            <br><br>
+            Besides the Ballon d’Or, Neymar’s next objective is to win the Champions League with PSG. Into the
+            quarterfinals of the tournament after beating Borussia Dortmund on aggregate in the Round of 16, Neymar will
+            be fit and hungry for the title.
+            <img src="../images/Paris Saint-Germain.png" width="150px" height="100px" alt="">
+        </p>
+
+    </div>
+
+    <div id="RobertLewandowskiProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Robert Lewandowski</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Bayern Munich’s world-class frontman just finished his sixth season with the club and his tenth season in
+            the Bundesliga altogether, helping Bayern win its 8th title in a row. And at 31, Robert Lewandowski had his
+            best season yet. Lewandowski secured Bundesliga’s top scorer award for the fifth time with 34 goals in the
+            31 matches he appeared in. He only failed to score in six games the entire season, recording seven braces
+            and one hat trick. He also managed 51 goals and 6 assists in 43 games in all competitions, including two in
+            the DFB Pokal final that Bayern recently won. Those numbers will likely increase in August as well when the
+            Champions League resumes in Lisbon, as Lewandowski has scored in every Champions League game he’s featured
+            in so far this season.
+            <br><br>
+            After such an incredible season, Robert Lewandowski is well in the conversation for the 2020 Ballon d’Or. In
+            fact, the decision could turn out to be somewhat simple if Lewandowski can continue his incredible form and,
+            in turn, help Bayern Munich win the Champions League and become the second-ever European side to win a
+            continental treble twice. This looks well within reach for the Polish international, as Bayern Munich are
+            widely considered to be favorites to lift the trophy.
+            <img src="../images/Bayern_Munich_Logo-removebg-preview.png" width="150px" height="100px" alt="">
+        </p>
+
+    </div>
+
+    <div id="kylianProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Kylian Mbappé</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Mbappé only falls short of Lewandowski on my list due to his youth and the fact that he hasn’t played since
+            March. However, in a few years, the French 21-year-old could very well be at the top of this list, for his
+            stats and ability are absolutely and objectively outstanding. Already a World Cup winner with a goal in the
+            final and a four-time Ligue 1 winner, Mbappé’s trophy cabinet will only continue to expand. Slightly
+            hampered by injury this season, Mbappé still scored 18 goals and made 7 assists in the 20 league games he
+            played. In all competitions, he managed 47 combined goals and assists in 33 games. These are Messi numbers.
+            These are Ronaldo numbers. These are Mbappé’s numbers.
+            <br><br>
+            Unfortunately, due to Ligue 1’s abrupt ending, Mbappé will most likely be an outsider for the 2020 Ballon
+            d’Or. However, if he can win his and PSG’s first-ever Champions League title in August, with help from
+            Neymar, of course, he could jump right back into the conversation.
+            <img src="../images/Paris Saint-Germain.png" width="150px" height="100px" alt="">
+        </p>
+
+    </div>
+
+    <div id="kevinProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Kevin De Bruyne</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Another player who could easily end up challenging for the Ballon d’Or at the end of the year is Manchester
+            City’s Kevin De Bruyne. The Belgian midfielder is absolutely world-class. He is easily the best midfielder
+            in England, and his vision and passing ability are off the charts. De Bruyne has 11 goals and 18 assists in
+            the Premier League this season, and with four games left to play, could very well be the player to finally
+            break Thierry Henry’s Premier League record of 20 assists in a season.
+            <br><br>
+            Having conceded the Premier League title to Liverpool this season, Pep Guardiola’s dominant Manchester City
+            team will want to prove itself when the Champions League resumes in August, and Kevin De Bruyne will be a
+            major factor in whether or not City can finally lift the trophy that the team has so coveted.
+            <img src="../images/100px-Manchester_United_FC_crest.svg.png" width="150px" height="100px" alt="">
+        </p>
+
+    </div>
+
+    <div id="salahProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Mohammad Salah</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Salah started out playing for the youth setups of local teams Ittihad Basyoun and Othmason Tanta.[30] He
+            names Ronaldo, Zinedine Zidane and Francesco Totti as his childhood idols.[31] In 2006, he joined the youth
+            team of Al Mokawloon aged 14 after being spotted by a scout who had originally come to watch another child
+            play but was distracted by Salah.[32][33] Salah frequently had to miss school to make the 3 hour journey to
+            training.[31] When Salah was 15 he was noticed by then first team manager Mohamed Radwan, who moved him to
+            the senior squad immediately. Salah had to be given a special diet and training program due to his muscles
+            not being fully formed because of his young age.[34]
+            <br><br>
+            2010–12: Senior team appearances
+            Salah made his senior team debut in the Egyptian Premier League coming on as a substitute on 3 May 2010 in a
+            1–1 away draw against El Mansoura. During the 2010–11 season Salah continued earning minutes on the pitch,
+            eventually becoming a regular in the team.[32] Even though he was getting regular game time, Salah struggled
+            to score. In the dressing room after matches he would sometimes be in tears because of this, and Radwan says
+            it only motivated him to become better.[33] He scored his first goal for them on 25 December 2010 in a 1–1
+            away draw against Al Ahly.[35] He remained a regular for Al Mokawloon, appearing in every game of the
+            2011–12 season.[36][37] Following the Port Said Stadium riot on 1 February 2012, the Egyptian Premier League
+            was suspended, and on 10 March 2012, the Egyptian Football Association announced their decision to cancel
+            the remainder of the season.[38]
+            <img src="../images/99px-Liverpool_Logo-removebg-preview.png" width="150px" height="150px" alt="">
+        </p>
+
+    </div>
+
+    <div id="sadioProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Sadio Mané</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Besides the team’s defensive strength, Liverpool has had one of the most threatening attacks in the world in
+            the past few years, and Sadio Mané has been a key reason why. The Senegalese winger has been exceptional for
+            the current English and European champions, recording 16 goals and 9 assists so far this season and winning
+            the Premier League Golden Boot with 22 goals in the last alongside Pierre-Emerick Aubameyang and teammate Mo
+            Salah.
+            <br><br>
+            Despite Mo Salah’s record-breaking goalscoring campaign two seasons ago or Roberto Firmino’s technical
+            superiority over both wingers, Sadio Mané stands out. His pace, finishing, and control are all world-class,
+            and he has scored some incredible goals for Liverpool in the past two seasons, including a brilliant chip
+            against Bayern Munich in the Champions League last year. Mané finished fourth for the 2019 Ballon d’Or and
+            looks to be a challenger for the award again in 2020.
+            <img src="../images/99px-Liverpool_Logo-removebg-preview.png" width="150px" height="150px" alt="">
+        </p>
+
+    </div>
+
+    <div id="riyadProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Riyad Mahrez</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            Similar to Liverpool, it is incredibly difficult to pick out one attacking player in a side with so much
+            talent up front and on the wings. What makes this even more difficult is that Manchester City’s squad depth
+            forces some of the team’s best players to sit on the bench. I knew I had to include at least one Manchester
+            City attacker, however, and between the likes of Bernardo Silva, Sergio Agüero, Raheem Sterling, Gabriel
+            Jesus, and even the injured Leroy Sané, I decided on the former Leicester City player and Algerian
+            international.
+            <br><br>
+            Riyad Mahrez has 10 goals and 12 assists in the Premier League this season. While he is actually only the
+            fifth Man City player to reach double digits in goals and assists this season (a Premier League record, by
+            the way), he has only started 60% of City’s matches and was benched for five of them. Mahrez’s control and
+            first touch are absolutely extraordinary, and he would arguably make it into the starting XI of any other
+            team in the world.
+            <img src="../images/100px-Manchester_United_FC_crest.svg.png" width="150px" height="150px" alt="">
+        </p>
+
+    </div>
+
+    <div id="erlingProfile" class="container mt-5">
+        <span id="messiProfile"><br><br><br><br><br></span>
+        <div class="px-1 mb-4 rounded" style="border-left: 9px solid rgb(0, 20, 31);">
+            <h2 class="playerHeading">Erling Haaland</h2>
+        </div>
+        <p class="d-flex" style="justify-content: center;">
+            After only one season in the limelight, Erling Haaland is arguably the best teenage soccer player in the
+            world and has quickly become of one the best strikers in the game. Although he is only 19, his numbers are
+            too ridiculous for him to not be one of the best players in the world right now. Haaland started this season
+            with RB Salzburg in Austria, netting 16 goals and managing 6 assists in only 14 league games as well as
+            recording 8 goals and 1 assist in the Champions League group stage. The Norwegian forward then made the
+            switch to Borussia Dortmund midseason and continued his incredible form with 13 goals and 3 assists in 15
+            Bundesliga matches. In total, Haaland has 44 goals and 10 assists this season in 40 games, and it is these
+            astonishing numbers that bring the youngster into the top 10 right now.
+            <br><br>
+            Haaland certainly has a lot of time to improve and will only go on to score more goals and play for bigger
+            clubs, but this season is not simply a breakout year. If he had won any trophies this year, the 19-year-old
+            would indubitably be a Ballon d’Or contender. Despite being knocked out by PSG in the Champions League round
+            of 16, Haaland scored two goals, including a magnificently powerful long-range strike. He and Mbappé, as
+            well as a few other youngsters who were considered for this list, look to be the real deal, and both will
+            likely be near the top of this list in a few years’ time.
+            <img src="../images/dortmund.jpg" width="150px" height="150px" alt="">
+        </p>
+
+    </div>
+
+
+
+
+    <!-- <header class="cd__intro">
+         <h1> Responsive & sortable Bootstrap data table Example </h1>
+         <p> Responsive & sortable Bootstrap data table </p>
+         <div class="cd__action">
+            <a href="https://www.codehim.com/bootstrap/bootstrap-5-table-with-pagination-and-search-and-sorting" title="Back to download and tutorial page" class="cd__btn back">Back to Tutorial</a>
+         </div>
+      </header> -->
+    <!--$%adsense%$-->
+    <main class="cd__main">
+        <!-- Start DEMO HTML (Use the following code into your project)-->
+        <table id="example" class="table table-bordered table-striped text-center" style="width:100%;">
+            <thead>
+                <tr>
+                    <th style="background-color: #0092e6; color: white;">Name</th>
+                    <th style="background-color: #0092e6; color: white;">Nation</th>
+                    <th style="background-color: #0092e6; color: white;">Games</th>
+                    <th style="background-color: #0092e6; color: white;">Goals</th>
+                    <th style="background-color: #0092e6; color: white;">Assits</th>
+                    <th style="background-color: #0092e6; color: white;">Leagues Titles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: rgb(0, 20, 31);">
+                    <td style="color: white;">Lionel Messi</td>
+                    <td style="color: white;">Argentinat</td>
+                    <td style="color: white;">865</td>
+                    <td style="color: white;">700</td>
+                    <td style="color: white;">298 </td>
+                    <td style="color: white;">10</td>
+                </tr>
+                <tr style="background-color: rgb(0, 20, 31);">
+                    <td style="color: white;">Cristiano Ronaldo</td>
+                    <td style="color: white;">Portugal</td>
+                    <td style="color: white;">1008</td>
+                    <td style="color: white;">732 </td>
+                    <td style="color: white;">219</td>
+                    <td style="color: white;">6</td>
+                </tr>
+                <tr style="background-color: rgb(0, 20, 31);">
+                    <td style="color: white;">Neymar</td>
+                    <td style="color: white;">Brazil</td>
+                    <td style="color: white;">501 </td>
+                    <td style="color: white;">305 </td>
+                    <td style="color: white;">192</td>
+                    <td style="color: white;">5</td>
+                </tr>
+                <tr style="background-color: rgb(0, 20, 31);">
+                    <td style="color: white;">Robert Lewandowski </td>
+                    <td style="color: white;">Poland</td>
+                    <td style="color: white;">698</td>
+                    <td style="color: white;">468</td>
+                    <td style="color: white;">137</td>
+                    <td style="color: white;">9</td>
+                </tr>
+                <tr>
+                    <td>Kylian Mbappé</td>
+                    <td>France </td>
+                    <td>215</td>
+                    <td>130</td>
+                    <td>76</td>
+                    <td>4</td>
+                </tr>
+                <tr style="background-color: rgb(0, 20, 31);">
+                    <td style="color: white;">Kevin De Bruyne </td>
+                    <td style="color: white;">Belgium</td>
+                    <td style="color: white;">520</td>
+                    <td style="color: white;">120</td>
+                    <td style="color: white;">205 </td>
+                    <td style="color: white;">2</td>
+                </tr>
+                <tr>
+                    <td>Mohammad Salah</td>
+                    <td>Holland</td>
+                    <td>417</td>
+                    <td>45</td>
+                    <td>18</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Sadio Mané </td>
+                    <td>Senegal</td>
+                    <td>417 </td>
+                    <td>169</td>
+                    <td>97</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Riyad Mahrez </td>
+                    <td>Algeria</td>
+                    <td>393</td>
+                    <td>98</td>
+                    <td>108</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Erling Haaland </td>
+                    <td>Norway</td>
+                    <td>114</td>
+                    <td>65</td>
+                    <td>16</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- END EDMO HTML (Happy Coding!)-->
+    </main>
+
+
+
+    <!-- Footer Start -->
+    <footer class="bd-footer text-light mb-2 my-5 mx-2"
+        style="background: rgb(0, 20, 31); color: white; box-shadow: rgb(0, 0, 0) 0px 5px 15px;">
+        <div class="container-fluid">
+            <div class="row justify-content-center text-md-center">
+                <div class="mb-4 text-center">
+                    <a class="d-inline-flex align-items-center mx-auto link-dark text-decoration-none"
+                        href="index.html">
+                        <img src="../images/logo.png" width="150px" height="55px" style="padding-top: 10px;">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3 mb-3">
+                    <h5
+                        style="color: #0092e6; font-weight: 800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="index.html" style="color: white; font-weight: 500;">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="about.html" style="color: white; font-weight: 500;">About Us</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html" style="color: white; font-weight: 500;">Contact Us</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="../sitemap.html" style="color: white; font-weight: 500;">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3 mb-3">
+                    <h5
+                        style="color: #0092e6; font-weight: 800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        About Us</h5>
+                    <ul class="list-unstyled" style="font-weight: 500;">
+                        </span> We dive into the heart of every match, unravel the tactics, celebrate the victories, and
+                        honor the legends who've left an indelible mark on the sport.
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-3">
+                    <h5
+                        style="color: #0092e6; font-weight: 800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        Contact Us</h5>
+                    <ul class="list-unstyled" style="font-weight: 500;">
+                        <li class="mb-3">
+                            <i style="color: #0092e6;" class="bi bi-envelope-fill"></i> <span style="cursor: pointer;">
+                                SoccerVerse@gmail.com</span>
+                        </li>
+                        <li class="mb-3">
+                            <i style="color: #0092e6;" class="bi bi-telephone-fill"></i> <span style="cursor: pointer;">
+                                +
+                                1234-5678-910</span>
+                        </li>
+                        <li class="mb-3">
+                            <i style="color: #0092e6;" class="bi-geo-alt-fill"></i> <span style="cursor: pointer;">
+                                Karachi,
+                                Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-3">
+                    <h5
+                        style="color: #0092e6; font-weight: 800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        Location</h5>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.534049991726!2d67.06268877538437!3d24.98196294038503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb340e584b891c3%3A0x29b2cbc198ba2dbd!2sAptech%20Computer%20Education%20North%20Karachi%20Center!5e0!3m2!1sen!2s!4v1684909086845!5m2!1sen!2s"
+                        width="100%" height="100" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row px-2 text-center justify-content-between align-items-center text-dark"
+            style="font-weight: 700; background-color: rgb(224, 224, 224); padding-top: 13px;">
+            <p>&copy; 2023 Soccer <span
+                    style="color: #0092e6; font-weight: 800; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Verse</span>,
+                All rights reserved.</p>
+            <ul class="list-unstyled d-flex fs-5">
+                <a style="text-decoration: none; color: white;" class=" social-icon social-facebook"
+                    href="https://web.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a style="text-decoration: none; color: white;" class=" social-icon social-instagram"
+                    href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                <a style="text-decoration: none; color: white;" class=" social-icon social-twitter"
+                    href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                <a style="text-decoration: none; color: white;" class=" social-icon social-linkedin"
+                    href="https://pk.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+            </ul>
+        </div>
+    </footer>
+
+
+    <!-- Footer End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Back to top Start -->
+
+
+
+
+
+
+    <button type="button" class="btn-floating btn-lg" id="btn-back-to-top" style="background: #0092e6; border: black;">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+
+
+
+
+    <!-- Back to top End -->
+
+
+    <!-- jQuery -->
+    <script src='https://code.jquery.com/jquery-3.7.0.js'></script>
+    <!-- Data Table JS -->
+    <script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+    <script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+    <script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <!-- Script JS -->
+    <script src="../js/script.js"></script>
+    <script src="../script.js"></script>
+    <!--$%analytics%$-->
+</body>
+
+</html>

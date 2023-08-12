@@ -1,0 +1,122 @@
+[
+    {
+        "sno": 1,
+        "teamimg": "images/100px-Manchester_United_FC_crest.svg.png",
+        "team": "Manchester United",
+        "matches": 9,
+        "win": 4,
+        "draw": 0,
+        "lose": 1,
+        "points": 60
+
+
+    },
+    {
+        "sno": 2,
+        "teamimg": "images/100px-Arsenal_Logo-removebg-preview.png",
+        "team": "Arsenal",
+        "matches": 9,
+        "win": 6,
+        "draw": 0,
+        "lose": 0,
+        "points": 60
+
+
+    },
+    {
+        "sno": 3,
+        "teamimg": "images/100px-Chelsea_Logo-removebg-preview.png",
+        "team": "Chelsea",
+        "matches": 9,
+        "win": 4,
+        "draw": 0,
+        "lose": 2,
+        "points": 60
+
+
+    },
+    {
+        "sno": 4,
+        "teamimg": "images/99px-Liverpool_Logo-removebg-preview.png",
+        "team": "Liverpool",
+        "matches": 9,
+        "win": 5,
+        "draw": 0,
+        "lose": 2,
+        "points": 60
+
+
+    },
+    {
+        "sno": 5,
+        "teamimg": "images/Bayern_Munich_Logo-removebg-preview.png",
+        "team": "FC Bayern München",
+        "matches": 9,
+        "win": 6,
+        "draw": 0,
+        "lose": 2,
+        "points": 60
+
+
+    },
+    {
+        "sno": 6,
+        "teamimg": "images/90px-FC_Barcelona_Logo-removebg-preview.png",
+        "team": "FC Barcelona",
+        "matches": 9,
+        "win": 6,
+        "draw": 1,
+        "lose": 0,
+        "points": 60
+
+
+    },
+    {
+        "sno": 7,
+        "teamimg": "images/85px-Chivas_Guadalajara_Logo-removebg-preview.png",
+        "team": "Club América",
+        "matches": 9,
+        "win": 5,
+        "draw": 0,
+        "lose": 2,
+        "points": 60
+
+
+    },
+    {
+        "sno": 8,
+        "teamimg": "images/download.png",
+        "team": "Pogon Szczecin",
+        "matches": 9,
+        "win": 6,
+        "draw": 0,
+        "lose": 0,
+        "points": 60
+
+
+    },
+    {
+        "sno": 9,
+        "teamimg": "images/download (1).png",
+        "team": "Bundesliga",
+        "matches": 9,
+        "win": 5,
+        "draw": 0,
+        "lose": 1,
+        "points": 60
+
+
+    },
+    {
+        "sno": 10,
+        "teamimg": "images/download (2).png",
+        "team": "AS Monaco",
+        "matches": 9,
+        "win": 6,
+        "draw": 1,
+        "lose": 0,
+        "points": 60
+
+
+    }
+]
